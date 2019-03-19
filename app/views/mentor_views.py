@@ -14,10 +14,12 @@ def solicitacoes(request):
 		if mentor.aprovado:
 			solicitacoes = Solicitacao.objects.filter(mentor=mentor, oculto=False)
 
-			return render(request, 'mentor_solicitacoes.html', {
+			contexto = {
 				'mentor': mentor,
 				'solicitacoes': solicitacoes
-			})
+			}
+
+			return render(request, 'mentor_solicitacoes.html', contexto)
 		else:
 			sweetify.error(request, 'Acesso restrito!', html='<p>Seu cadastro ainda não foi aprovado!</p><p>Por favor aguarde o contato da nossa equipe!</p>', persistent=True)
 			return redirect('app_auth_login')
@@ -33,7 +35,7 @@ def contato(request, id_solicitacao):
 			try:
 				solicitacao = Solicitacao.objects.get(pk=id_solicitacao)
 				
-				sweetify.info(request, 'Entrar em contato!', html=f'<p>Para entrar em contato com {solicitacao.estudante.nome}, envie um e-mail.</p><p><a href="mailto:{solicitacao.estudante.email}">Enviar E-mail</a></p>', persistent=True)
+				sweetify.success(request, 'Entrar em contato!', html=f'<p>Para entrar em contato com {solicitacao.estudante.nome}, envie um e-mail.</p><p><a href="mailto:{solicitacao.estudante.email}">Enviar E-mail</a></p>', persistent=True)
 			except Solicitacao.DoesNotExist:
 				sweetify.error(request, 'Erro!', text='Solicitação não foi encontrada!')
 			return redirect('app_mentor_solicitacoes')

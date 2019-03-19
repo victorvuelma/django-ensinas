@@ -24,12 +24,14 @@ def materia(request, id_materia):
 		else:
 			mentores = Mentor.objects.filter(aprovado=True)
 
-		return render(request, 'estudante_materia.html', {
+		contexto = {
 			"materias": materias, 
 			"materia_atual": id_materia,
 			"mentores": mentores,
 			"estudante": estudante
-			})
+		}
+
+		return render(request, 'estudante_materia.html', contexto)
 	else:
 		sweetify.error(request, 'Acesso restrito!', text='Você precisa estar autenticado para acessar esta página.', button='Ok', timer=3000)
 		

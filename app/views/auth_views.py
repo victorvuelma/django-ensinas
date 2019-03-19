@@ -37,10 +37,12 @@ def cadastro(request):
 	else:
 		form_mentor = forms.MentorCadastroForm()
 
-	return render(request, 'auth_cadastro.html', {
-			'form_estudante': form_estudante,
-			'form_mentor': form_mentor
-	})
+	contexto = {
+		'form_estudante': form_estudante,
+		'form_mentor': form_mentor
+	}
+
+	return render(request, 'auth_cadastro.html', contexto)
 
 def login(request):
 	if request.POST.get("do", '') == "login_estudante":
@@ -77,10 +79,12 @@ def login(request):
 	else:
 		form_mentor = forms.MentorLoginForm()
 
-	return render(request, 'auth_login.html', {
-			'form_estudante': form_estudante,
-			'form_mentor': form_mentor
-	})
+	contexto = {
+		'form_estudante': form_estudante,
+		'form_mentor': form_mentor
+	}
+
+	return render(request, 'auth_login.html', contexto)
 
 def logout(request):
 	estudante_auth.logout(request)
