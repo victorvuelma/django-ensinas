@@ -29,7 +29,6 @@ def cadastro(request):
 			form_mentor.instance.curso = ""
 			form_mentor.instance.instituicao = ""
 			mentor = form_mentor.save()
-			mentor_auth.init_session(request, mentor)		
 
 			sweetify.success(request, 'Cadastro concluído!', html='<p>Seu cadastro foi concluído!</p><p>Agora basta aguardar que nossa equipe irá entrar em contato para analisar e aprovar seu cadastro!</p>', persistent=True)
 
@@ -70,8 +69,13 @@ def login(request):
 				email = form_mentor.cleaned_data['email']
 				senha = form_mentor.cleaned_data['senha']
 
-				if mentor_auth.login(request, email, senha):
-					return redirect('app_mentor_home')
+				mentor = mentor_auth.login(request, email, senha)
+				if mentor is not None:
+					if mentor.aprovado:
+						return redirect('app_mentor_home')
+					else:
+						mentor_auth.logout(request)
+						sweetify.error(request, 'Acesso restrito!', html='<p>Seu cadastro ainda não foi aprovado!</p><p>Por favor aguarde o contato da nossa equipe!</p>', persistent=True)
 				else:
 					form_mentor.add_error('email', 'E-mail e/ou senha inválidos.')
 		else:

@@ -25,8 +25,8 @@ def login(request, email, senha):
 
         if(check_password(senha, mentor.senha)):
             init_session(request, mentor)
-            return True
+            return mentor
     except Mentor.DoesNotExist:
         pass
 
-    return False
+    return None
