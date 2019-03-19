@@ -1,10 +1,45 @@
 body {
     margin: 0;
-    display: grid;
-    grid-template-areas: 'nav nav''aside main''aside main';
-    grid-template-columns: 25% 75%;
-    grid-template-rows: 12vh 100vh 100vh;
+
     font-family: 'Roboto', sans-serif;
+}
+
+.swal2-content p{
+    margin: 5px 0;
+}
+
+#grid {
+    display: grid;
+    grid-template-areas: 'navlogo nav''aside main';
+    grid-template-columns: 320px;
+    grid-template-rows: 70px;
+    min-height: 100vh;
+}
+
+#navlogo {
+    grid-area: navlogo;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0d0d0d;
+    font-size: 18pt;
+}
+
+#navlogo img {
+    height: 50px;
+    width: auto;
+    margin-right: 20px;
+}
+
+#navlogo h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 32pt;
+}
+
+#navlogo h1 span {
+    color: #ff6600;
 }
 
 nav {
@@ -14,26 +49,10 @@ nav {
     color: #ffffff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 nav div:nth-child(1) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 337.75px;
-    height: 73.59px;
-    background-color: #0d0d0d;
-    font-size: 1.8em;
-}
-
-nav div:nth-child(1) img {
-    height: 50px;
-    width: auto;
-    margin-right: 20px;
-}
-
-nav div:nth-child(2) {
     width: 40%;
     height: 100%;
     display: flex;
@@ -42,7 +61,7 @@ nav div:nth-child(2) {
     display: none;
 }
 
-nav div:nth-child(2) input {
+nav div:nth-child(1) input {
     width: 90%;
     height: 35px;
     border: 2px solid #0d0d0d;
@@ -53,38 +72,32 @@ nav div:nth-child(2) input {
     font-size: 1.4em;
 }
 
-nav div:nth-child(2) button {
+nav div:nth-child(1) button {
     background-color: #ffff;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    height: 41px;
     border: 2px solid #0d0d0d;
     border-left: none;
     width: 10%;
 }
 
-nav div:nth-child(2) button img {
+nav div:nth-child(1) button img {
     width: 80%;
     cursor: pointer;
 }
 
-nav div:nth-child(3) {
+nav div:nth-child(2) {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
-    width: 25vw;
     height: 100%;
 }
 
-nav div:nth-child(3) p {
-    font-size: 1.5em;
+nav div:nth-child(2) h2 {
+    font-size: 20pt;
     font-weight: bold;
-    width: 80%;
     text-align: right;
-}
-
-nav h1 span {
-    color: #ff6600;
+    margin: 0 10px;
 }
 
 .iconePerfil {
@@ -110,7 +123,7 @@ aside {
 }
 
 aside p {
-    font-size: 2em;
+    font-size: 20pt;
     color: #ffff;
 }
 
@@ -190,18 +203,18 @@ main p {
     border-bottom-width: 4px;
     border-right-width: 7px;
     border-radius: 10px;
-
 }
 
 .imgProfessor {
     width: 13%;
     border: 3px solid #0d0d0d;
+    background-color: #0d0d0d;
     border-radius: 50%;
 }
 
 .infoProfessor {
     width: 330px;
-    height: 20vh;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

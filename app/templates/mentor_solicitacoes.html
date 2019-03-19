@@ -26,8 +26,8 @@
         </div>
         <nav>
             <div id="nav-perfil">
+                <h2>{{mentor.nome}}</h2>
                 <ul>
-                    <li><h2>{{mentor.nome}}</h2></li>
                     <li><a href="{% url 'app_auth_logout' %}"><i class="fas fa-sign-out-alt"></i></a></li>
                 </ul>
             </div>
@@ -42,9 +42,10 @@
             <button>Editar Perfil</button>
         </aside>
         <section id="content">
-            <ul class="alunos">
-                {% if solicitacoes.count > 0 %}
-                    {% for solicitacao in solicitacoes %}
+            {% if solicitacoes and solicitacoes.count > 0 %}
+                <p>Suas solicitações pendentes:</p>
+                {% for solicitacao in solicitacoes %} 
+                    <ul class="alunos">
                         <li class="aluno">
                             <div>
                                 <img src="{% static 'img/placeholder.png' %}" alt="">
@@ -57,10 +58,11 @@
                                 <a href="{% url 'app_mentor_ocultar' solicitacao.id %}"><button class="fechar">X</button></a>
                             </div>
                         </li>
-                    {% endfor %}
-                {% else %}
-                {% endif %}
-            </ul>
+                    </ul>
+                {% endfor %}
+            {% else %}
+                <p>Não há nenhuma solicitação pendente :(</p>
+            {% endif %}
         </section>
     </div>
 

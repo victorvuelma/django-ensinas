@@ -6,6 +6,10 @@ body {
     justify-content: center;
 }
 
+.swal2-content p{
+    margin: 5px 0;
+}
+
 #main {
     display: grid;
     grid-template-areas: 'cadastro1 logo cadastro2';
