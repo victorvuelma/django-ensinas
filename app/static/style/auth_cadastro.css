@@ -70,7 +70,7 @@ form ul {
     font-weight: bold;
 }
 
-form button {
+button {
     background-color: #ffffff;
     border-radius: 5px;
     color: #ff6600;
@@ -80,7 +80,7 @@ form button {
     text-transform: uppercase;
 }
 
-form button:hover {
+button:hover {
     box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.24), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
     transition: 0.3s;
     background-color: #dd5500;
@@ -129,4 +129,8 @@ form button:hover {
 #logo p:nth-of-type(1) {
     text-transform: uppercase;
     font-weight: bolder;
+}
+
+#logo p:nth-of-type(3){
+    margin: 20px 0;
 }
