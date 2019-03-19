@@ -68,15 +68,18 @@ nav {
     height: 40px;
     margin-left: 40px;
     padding: 0 15px;
+    transition: 0.3s;
 }
 
 .navRight .login:hover {
     color: #FF6600;
+    transition: 0.3s;
 }
 
 .navRight .boxCadastro:hover {
     cursor: pointer;
     background-color: rgb(253, 121, 32);
+    transition: 0.3s;
 }
 .navRight a:hover{
     text-decoration: none;

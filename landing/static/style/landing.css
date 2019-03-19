@@ -81,6 +81,8 @@ nav {
     border-radius: 5px;
     transition: all 0.4s;
     color: white;
+    outline: none;
+    text-decoration: none;
 }
 
 .mainInside .materiasButton:hover {
@@ -144,15 +146,19 @@ section p {
     font-size: 3rem;
     flex-direction: column;
     align-items: center;
+    width: 350px;
+    text-align: center;
 }
 
 .iconBox .icons:hover {
     cursor: pointer;
     background-color: #FF6600;
+    transition: 0.3s;
 }
 
 .iconBox .icons:hover {
     color: white;
+    transition: 0.3s;
 }
 
 .iconBox .icons {
