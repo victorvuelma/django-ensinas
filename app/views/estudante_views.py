@@ -18,11 +18,11 @@ def materia(request, id_materia):
 	estudante = estudante_auth.get(request)
 	
 	if estudante is not None:
-		materias = Materia.objects.all()
+		materias = Materia.objects.order_by('nome').all()
 		if id_materia is not 0:
-			mentores = Mentor.objects.filter(materia=id_materia, aprovado=True)
+			mentores = Mentor.objects.order_by('nome').filter(materia=id_materia, aprovado=True)
 		else:
-			mentores = Mentor.objects.filter(aprovado=True)
+			mentores = Mentor.objects.order_by('nome').filter(aprovado=True)
 
 		contexto = {
 			"materias": materias, 
