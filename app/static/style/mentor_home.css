@@ -121,15 +121,18 @@ nav a {
 
 aside {
     grid-area: aside;
+    background-color: #ff6600;
+}
 
+aside div{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #ff6600;
+    height: calc(100vh - 70px)
 }
 
-aside>img {
+aside div>img {
     height: auto;
     width: 220px;
     border-radius: 50%;

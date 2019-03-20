@@ -35,13 +35,15 @@
             </div>
         </nav>
         <aside>
-            <img src="{% static 'img/placeholder.png' %}" alt="">
-            <ul>
-                <li><h2>{{mentor.nome}}</h2></li>
-                <li><i class="fas fa-briefcase"></i>{{mentor.materia.nome}}</li>
-                <li><i class="fas fa-university"></i>{{mentor.curso}} {{mentor.instituicao}}</li>
-            </ul>
-            <button>Editar Perfil</button>
+            <div>
+                <img src="{% static 'img/placeholder.png' %}" alt="">
+                <ul>
+                    <li><h2>{{mentor.nome}}</h2></li>
+                    <li><i class="fas fa-briefcase"></i>{{mentor.materia.nome}}</li>
+                    <li><i class="fas fa-university"></i>{{mentor.curso}} {{mentor.instituicao}}</li>
+                </ul>
+                <button>Editar Perfil</button>
+            </div>
         </aside>
         <section id="content">
             {% if solicitacoes and solicitacoes.count > 0 %}
