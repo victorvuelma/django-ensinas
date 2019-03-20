@@ -226,6 +226,7 @@ main p {
     color: #0d0d0d;
     align-self: flex-end;
     font-weight: bold;
+    text-align: right;
 }
 
 .infoProfessor p:nth-child(1) {
